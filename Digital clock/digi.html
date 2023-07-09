@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Digital Clock</title>
+    <style>
+        body{
+            background-color: rgb(48, 47, 51);
+            background-repeat: no-repeat;
+        }
+        .clock{
+            position: absolute;
+            color:rgb(175, 255, 47);
+            top:50%;
+            left:50%;
+            transform: translateX(-50%) translateY(-50%);
+            font-size: 60px;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            letter-spacing: 7px;
+            width:600px;
+            height: 80px;
+            background-color: rgb(72, 73, 73);
+            text-align: center;
+            border-radius: 10px;
+           
+        }
 
+    </style>
+  </head>
+  <body>
+    <div id="dClock"></div>
+    <script type='text/javascript>
+    function sTime(){
+      var date= new Date();
+      var h= date.getHours();
+      var m=date.getMinutes();
+      var s=date.getSeconds();
+      var session="AM";
+      if(h==0){
+        h=12;
+      }
+      if(h>12){
+        h=h-12;
+      session="PM";
+      }
+      h=(h<10)?"0"+h:h;
+    s=(s<10)?"0"+s:s;
+    m=(m<10)?"0"+m:m;
+      document.getElementById("dClock").innerHTML=h+" : "+m+" : "+s+" : "+session;
+      setTimeout(sTime,1000);
+    }
+     sTime(); 
+    </script>
+  </body>
+</html>
