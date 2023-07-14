@@ -1,47 +1,82 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <style>
+        *{
+            background-color: rgb(82, 105, 105);
+        }
+        .title{
+            margin-bottom: 10px;
+            background-color: rgb(98, 102, 101);
+            text-align: center;
+            width:210px;
+            color: rgb(0, 26, 255);
+            font-weight: bold;
+            border: solid rgb(137, 226, 248) 2px;
+            align-items: center ;
+        }
+        input[type="button"]{
+            background-color: rgb(82, 77, 77);
+            color: white;
+            border: solid black 2px;
+            width:100%;
+        }
+        input[type="text"]{
+            background-color: white;
+            border:solid rgb(124, 117, 117) 2px;
+            width:100%;
+        }
+    </style>
 </head>
 <body>
     <div class="title">VB Calculator</div>
-    <table border="0">
+    <table>
         <tr>
             <td colspan="3"><input type="text" id="result"></td>
-            <td><iinput type="button" value="c"onclick="clear()"></input></td>
+            <td><input type="button" value="c"onclick="clr()"></td>
         </tr>
-        <tf>
-            <td ><input type="button" value="1" onclick="diaplay()"></td>
-            <td ><input type="button" value="2" onclick="diaplay()"></td>
-            <td ><input type="button" value="3" onclick="diaplay()"></td>
-            <td ><input type="button" value="4" onclick="diaplay()"></td>
-        </tf>
-        <tf>
-            <td ><input type="button" value="5" onclick="diaplay()"></td>
-            <td ><input type="button" value="6" onclick="diaplay()"></td>
-            <td ><input type="button" value="7" onclick="diaplay()"></td>
-            <td ><input type="button" value="8" onclick="diaplay()"></td>
-        </tf>
-        <tf>
-            <td ><input type="button" value="5" onclick="diaplay()"></td>
-            <td ><input type="button" value="6" onclick="diaplay()"></td>
-            <td ><input type="button" value="7" onclick="diaplay()"></td>
-            <td ><input type="button" value="8" onclick="diaplay()"></td>
-        </tf> <tf>
-            <td ><input type="button" value="7" onclick="diaplay()"></td>
-            <td ><input type="button" value="8" onclick="diaplay()"></td>
-            <td ><input type="button" value="9" onclick="diaplay()"></td>
-            <td ><input type="button" value="+" onclick="diaplay()"></td>
-        </tf>
-        <tf>
-            <td ><input type="button" value="/" onclick="diaplay()"></td>
-            <td ><input type="button" value="0" onclick="diaplay()"></td>
-            <td ><input type="button" value="=" onclick="diaplay()"></td>
-            <td ><input type="button" value="*" onclick="diaplay()"></td>
-        </tf>
+        <tr>
+            <td ><input type="button" value="1" onclick="display('1')"></td>
+            <td ><input type="button" value="2" onclick="display('2')"></td>
+            <td ><input type="button" value="3" onclick="display('3')"></td>
+            <td ><input type="button" value="/" onclick="display('/')"></td>
+        </tr>
+        <tr>
+            <td ><input type="button" value="4" onclick="display('4')"></td>
+            <td ><input type="button" value="5" onclick="display('5')"></td>
+            <td ><input type="button" value="6" onclick="display('6')"></td>
+            <td ><input type="button" value="-" onclick="display('-')"></td>
+        </tr>
+        <tr>
+            <td ><input type="button" value="7" onclick="display('7')"></td>
+            <td ><input type="button" value="8" onclick="display('8')"></td>
+            <td ><input type="button" value="9" onclick="display('9')"></td>
+            <td ><input type="button" value="+" onclick="display('+')"></td>
+        </tr>
+        <tr>
+            <td ><input type="button" value="." onclick="display('.')"></td>
+            <td ><input type="button" value="0" onclick="display('0')"></td>
+            <td ><input type="button" value="=" onclick="equate()"></td>
+            <td ><input type="button" value="*" onclick="display('*')"></td>
+        </tr>
     </table>
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+        function clr(){
+            document.getElementById("result").value="";
+        }
+        function display(val){
+            document.getElementById("result").value+=val;
+        }
+        function equate(){
+            let x=document.getElementById("result").value;
+            let y=eval(x); //evaluate built in function
+            document.getElementById("result").value=y;
+            
+        }
+    </script>
 </body>
 </html>
